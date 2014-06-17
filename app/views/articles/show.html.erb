@@ -1,0 +1,17 @@
+<h2><%= @article.title.titleize %></h2>
+<p>Posted by <%= @article.user.email %> <%= @article.created_at %></p>
+<%= @article.body.capitalize %>
+
+<div>
+  <p><%= @comments.count %> Comments,
+  <%= link_to "#{@team_name}", team_path(@team) %>, 
+  <%= link_to "Top Stories", root_path %></p>
+</div>
+
+<h4>Comments</h4>
+<%= render @comments %>
+<% unless signed_in? %>
+  You must be <%= link_to "logged in", sign_in_path %>to leave a comment.
+<% else %>
+  <%= link_to "Add a new comment", new_user_comment_path(current_user) %>
+<% end %>

@@ -1,0 +1,16 @@
+<%= form_for(@article) do |form| %>
+  <div>
+    <%= form.label :title, "Title" %>
+    <%= form.text_field :title, placeholder: "Article Title" %>
+  </div>
+  <div>
+    <%= form.label :body, "Body" %>
+    <%= form.text_area :body, placeholder: "Article Content Here" %>
+  </div>
+
+  <%= form.select(:team_id, options_from_collection_for_select(Team.all, :id, :name)) %>
+
+  <div>
+    <%= form.submit "Add Article" %>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+<h2><%= @team.name %></h2>
+
+<% @articles.each do |article| %>
+  <% if article == @team.articles.last %>
+    <div id="newest-article">
+      <h3><%= link_to article.title.upcase, article %><br>
+      Posted by xxxxxxxx at <%= article.created_at %>
+      <p><%= truncate(article.body, length: 100) %></h3>
+    </div>
+  <% else %>
+    <div id="articles">
+      <p><%= link_to article.title.titleize, article %></p>
+    </div>
+  <% end %>
+<% end %>

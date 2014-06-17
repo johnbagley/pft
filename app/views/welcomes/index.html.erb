@@ -1,0 +1,18 @@
+Index
+<nav>
+  <%= link_to "Teams", teams_path %>
+</nav>
+
+<% @articles.each do |article| %>
+  <% if article == Article.last %>
+    <div id="newest-article">
+      <h2><%= link_to article.title.upcase, article %></h2>
+      Last Updated <%= (article.created_at) %>
+    </div>
+    
+  <% else %>
+    <div id="articles">
+      <h4><%= link_to article.title.upcase, article %></h4>
+    </div>
+  <% end %>
+<% end %>

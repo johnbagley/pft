@@ -1,0 +1,8 @@
+<h2>Teams Index</h2>
+
+#HOLY BALLS REVIEW THIS!!  (Because each only works on an array)
+
+<% @divisions.each do |teams| %>
+  <h3><%= teams.first.division %></h3>
+  <%= render teams %><br>
+<% end %>
