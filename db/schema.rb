@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140614182324) do
+ActiveRecord::Schema.define(version: 20140618182644) do
 
   create_table "articles", force: true do |t|
     t.integer  "team_id"
@@ -34,6 +34,13 @@ ActiveRecord::Schema.define(version: 20140614182324) do
 
   add_index "comments", ["article_id"], name: "index_comments_on_article_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "likes", force: true do |t|
+    t.integer  "likable_id"
+    t.string   "likable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "teams", force: true do |t|
     t.string   "name"

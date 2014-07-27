@@ -8,10 +8,10 @@
   <%= link_to "Top Stories", root_path %></p>
 </div>
 
-<h4>Comments</h4>
+<h4><%= button_to "Like" %> Comments</h4>
 <%= render @comments %>
 <% unless signed_in? %>
   You must be <%= link_to "logged in", sign_in_path %>to leave a comment.
 <% else %>
-  <%= link_to "Add a new comment", new_user_comment_path(current_user) %>
+  <%= link_to "Add a new comment", new_article_comment_path(@article) %>
 <% end %>

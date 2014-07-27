@@ -1,11 +1,13 @@
 class ArticlesController < ApplicationController
   def new
-    @article = Article.new
+    @user = User.find(params[:user_id])
+    @article = @user.articles.new
     @teams = Team.all
   end
 
   def create
-    article = Article.create(article_params)
+    user = User.find(params[:user_id])
+    article = user.articles.create(article_params)
     redirect_to root_path
   end
 

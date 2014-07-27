@@ -1,10 +1,15 @@
 Rails.application.routes.draw do
   root 'welcomes#index'
-  resources :users, only: [:new, :create, :show] do
+  resources :users, only: [:show], shallow: true do
+    resources :articles
+  end
+  
+  resources :articles do
     resources :comments, only: [:new, :create, :show, :index]
   end
-  resources :articles
   resources :teams, only: [:index, :show]
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
