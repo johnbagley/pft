@@ -4,19 +4,19 @@ class CommentsController < ApplicationController
   end
 
   def new
-    @article = Article.find(params[:article_id])
-    @comment = @article.comments.new
+    @user = User.find(params[:user_id])
+    @comment = Comment.new
   end
 
   def create
-    article = Article.find(params[:article_id])
-    comment = article.comments.create(comment_params)
-    redirect_to article_path(article)
+    user = User.find(params[:user_id])
+    comment = user.comments.create(comment_params)
+    redirect_to article_path(:article_id)
   end
 
   private
 
   def comment_params
-    params.require(:comment).permit(:content).merge(user_id: current_user.id)
+    params.require(:comment).permit(:content)
   end
 end

@@ -1,6 +1,6 @@
 New Comment Form
 
-<%= form_for([@article, @comment]) do |form| %>
+<%= form_for([@user, @comment]) do |form| %>
   <%= form.text_area :content %>
   <%= form.submit "Add Comment" %>
 <% end %>
