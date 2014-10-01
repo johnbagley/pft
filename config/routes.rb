@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'welcomes#index'
-  resources :users, only: [:new, :create, :show] do
+  resources :users, only: [:show] do
     resources :comments, only: [:new, :create, :show, :index]
   end
   resources :articles
